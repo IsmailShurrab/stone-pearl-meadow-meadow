@@ -1,0 +1,70 @@
+@import "tailwindcss";
+@import "@fontsource/readex-pro/latin-400.css";
+@import "@fontsource/readex-pro/latin-500.css";
+@import "@fontsource/readex-pro/latin-600.css";
+@import "@fontsource/readex-pro/latin-700.css";
+@import "@fontsource/readex-pro/arabic-400.css";
+@import "@fontsource/readex-pro/arabic-500.css";
+@import "@fontsource/readex-pro/arabic-600.css";
+@import "@fontsource/readex-pro/arabic-700.css";
+
+@theme {
+  --font-sans: "Readex Pro", "Noto Naskh Arabic", "Noto Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --color-bg: #efeae2;
+  --color-surface: #fffdf9;
+  --color-fg: #1c1712;
+  --color-muted: #5e564e;
+  --color-primary: #0f6a52;
+  --color-primary-fg: #f3faf7;
+  --color-accent: #8c4e16;
+  --color-accent-soft: #f8efe4;
+  --color-border: #e3d9cc;
+  --color-danger: #8d3a30;
+  --color-danger-soft: #f8ece9;
+  --color-ok-soft: #e5f3ed;
+  --color-warn: #6f4710;
+  --color-warn-soft: #f8f1e2;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  input,
+  textarea {
+    font: inherit;
+  }
+}
+
+.ledger-lines {
+  background-color: var(--color-surface);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent calc(1.75rem - 1px),
+    var(--color-border) 1.75rem
+  );
+  background-attachment: local;
+  line-height: 1.75rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
